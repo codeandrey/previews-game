@@ -1,0 +1,635 @@
+@import vars
+@import fonts
+@import libs
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	background-color: #323145
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+
+a
+	color: #ffffff
+	&:hover
+		outline: none
+		text-decoration: none
+object
+	display: none
+ul
+	margin: 0
+	padding: 0
+	list-style: none
+.icon-svg-nav
+	width: 15px
+	height: 15px
+	display: inline-block
+	fill: #9d9acc
+
+.wappper
+	max-width: 1366px
+	width: 100%
+	min-height: 100vh
+	margin: auto
+	overflow: hidden
+.active a:before, .menu-link:hover:before, .active .comments-tab-link:before
+	content: ''
+	width: 100%
+	position: absolute
+	height: 2px
+	left: 0
+	bottom: 0
+	background: rgba(217,79,199,1)
+	background: -moz-linear-gradient(left, rgba(217,79,199,1) 0%, rgba(255,145,90,1) 100%)
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(217,79,199,1)), color-stop(100%, rgba(255,145,90,1)))
+	background: -webkit-linear-gradient(left, rgba(217,79,199,1) 0%, rgba(255,145,90,1) 100%)
+	background: -o-linear-gradient(left, rgba(217,79,199,1) 0%, rgba(255,145,90,1) 100%)
+	background: -ms-linear-gradient(left, rgba(217,79,199,1) 0%, rgba(255,145,90,1) 100%)
+	background: linear-gradient(to right, rgba(217,79,199,1) 0%, rgba(255,145,90,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d94fc7', endColorstr='#ff915a', GradientType=1 )
+
+$border: 2px
+$gradient-1: #9d9acc
+$gradient-2: #6f6d99
+.header
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+
+	&-nav
+		background: rgba(60,59,83,1)
+		background: -moz-linear-gradient(left, rgba(60,59,83,1) 0%, rgba(36,35,51,0.2) 100%)
+		background: -webkit-gradient(left top, right top, color-stop(0%, rgba(60,59,83,1)), color-stop(100%, rgba(36,35,51,0.2)))
+		background: -webkit-linear-gradient(left, rgba(60,59,83,1) 0%, rgba(36,35,51,0.2) 100%)
+		background: -o-linear-gradient(left, rgba(60,59,83,1) 0%, rgba(36,35,51,0.2) 100%)
+		background: -ms-linear-gradient(left, rgba(60,59,83,1) 0%, rgba(36,35,51,0.2) 100%)
+		background: linear-gradient(to right, rgba(60,59,83,1) 0%, rgba(36,35,51,0.2) 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3b53', endColorstr='#242333', GradientType=1 )
+		height: 72px
+		width: 100%
+		box-shadow: 16px  0 65px rgba(36,35,51,0.48)
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: center
+	.menu
+		&-item
+			list-style-type: none
+			line-height: 72px
+			vertical-align: middle
+			padding: 0 30px
+			display: inline-block
+
+			.bordered
+				width: 85px
+				height: 38px
+				position: relative
+				z-index: 1
+				line-height: 38px
+				text-align: center
+				&:before, &:after
+					content: ''
+					background-image: linear-gradient(right, $gradient-1, $gradient-2)
+					position: absolute
+					width: calc(100% + #{$border*2})
+					height: calc(100% + #{$border*2})
+					left: -$border
+					top: -$border
+					border-radius: 19px
+					z-index: -2
+		  
+				&:after
+					background: linear-gradient(left, #3c3b53, #242333)
+					width: 100%
+					height: 100%
+					z-index: -1
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					border-radius: 19px
+				.menu-link:hover
+					background: transparent
+					&:before
+						background: transparent
+						border: none
+
+			
+
+		&-link
+			position: relative
+			display: inline-block
+			vertical-align: middle
+			color: #ffffff
+			height: 72px
+			padding: 0 30px
+			text-decoration: none
+	  
+			&:hover
+				background: rgba(226,226,226,0)
+				color: #fff 
+				background: -moz-linear-gradient(top, rgba(226,226,226,0) 0%, rgba(254,254,254,0.93) 100%)
+				background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(226,226,226,0)), color-stop(100%, rgba(254,254,254,0.07)))
+				background: -webkit-linear-gradient(top, rgba(226,226,226,0) 0%, rgba(254,254,254,0.07) 100%)
+				background: -o-linear-gradient(top, rgba(226,226,226,0) 0%, rgba(254,254,254,0.07) 100%)
+				background: -ms-linear-gradient(top, rgba(226,226,226,0) 0%, rgba(254,254,254,0.07) 100%)
+				background: linear-gradient(to bottom, rgba(226,226,226,0) 0%, rgba(254,254,254,0.07) 100%)
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=0 )
+				text-decoration: none
+				
+	&-user
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		align-items: center
+		.dots
+			
+			&-list
+				list-style: none
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				align-items: center
+				margin: 0
+				padding: 0
+
+			&-item
+				margin: 0 20px
+				.i
+					display: inline-block
+					width: 25px
+					height: 30px
+					position: relative
+					&:before
+						content: ''
+						width: 16px
+						height: 16px
+						border-radius: 50%
+						background: #282739
+						position: absolute
+						right: -5px
+						top: -3px					
+					&.i-chalice
+						background: url(../img/icons/i-chalice.png) 
+						background-position: center center
+						background-repeat: no-repeat			
+			
+						&:after
+							content: ''
+							position: absolute
+							right: 0
+							top: 0
+							width: 8px
+							height: 8px
+							border-radius: 50%
+							background: rgba(217,79,199,1)
+							background: -moz-linear-gradient(45deg, rgba(217,79,199,1) 0%, rgba(109,48,200,1) 100%)
+							background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(217,79,199,1)), color-stop(100%, rgba(109,48,200,1)))
+							background: -webkit-linear-gradient(45deg, rgba(217,79,199,1) 0%, rgba(109,48,200,1) 100%)
+							background: -o-linear-gradient(45deg, rgba(217,79,199,1) 0%, rgba(109,48,200,1) 100%)
+							background: -ms-linear-gradient(45deg, rgba(217,79,199,1) 0%, rgba(109,48,200,1) 100%)
+							background: linear-gradient(45deg, rgba(217,79,199,1) 0%, rgba(109,48,200,1) 100%)
+							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d94fc7', endColorstr='#6d30c8', GradientType=1 )
+
+					&.i-notification
+						background: url(../img/icons/i-notification.png) 
+						background-position: center 0
+						background-repeat: no-repeat
+
+						&:after
+							content: ''
+							position: absolute
+							right: 0
+							top: 0
+							width: 8px
+							height: 8px
+							border-radius: 50%
+							background: rgba(87,186,201,1)
+							background: -moz-linear-gradient(45deg, rgba(87,186,201,1) 0%, rgba(61,235,110,1) 100%)
+							background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(87,186,201,1)), color-stop(100%, rgba(61,235,110,1)))
+							background: -webkit-linear-gradient(45deg, rgba(87,186,201,1) 0%, rgba(61,235,110,1) 100%)
+							background: -o-linear-gradient(45deg, rgba(87,186,201,1) 0%, rgba(61,235,110,1) 100%)
+							background: -ms-linear-gradient(45deg, rgba(87,186,201,1) 0%, rgba(61,235,110,1) 100%)
+							background: linear-gradient(45deg, rgba(87,186,201,1) 0%, rgba(61,235,110,1) 100%)
+							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#57bac9', endColorstr='#3deb6e', GradientType=1 )
+$border: 2px
+$gradient-1: #d94fc7
+$gradient-2: #6d30c8
+.money
+	&-bordered
+		width: 85px
+		height: 38px
+		position: relative
+		z-index: 1
+		display: inline-block
+		margin: 0 16px
+		&:before, &:after
+			content: ''
+			background-image: linear-gradient(right, $gradient-1, $gradient-2)
+			position: absolute
+			width: calc(100% + #{$border*2})
+			height: calc(100% + #{$border*2})
+			left: -$border
+			top: -$border
+			border-radius: 19px
+			z-index: -2
+			transition: all .2s ease-in-out
+  
+		&:after
+			background: linear-gradient(left, #3c3b53, #242333)
+			width: 100%
+			height: 100%
+			z-index: -1
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			border-radius: 19px
+		&_bg
+			background: url(../img/gem_bg.png)
+			background-position: center center
+			background-repeat: no-repeat
+			background-size: cover
+			width: 100%
+			height: 100%
+			display: block
+			border: 2px solid #000
+			border-radius: 19px
+			span
+				color: #fff
+				background: linear-gradient(left, rgba(60, 59, 83, 0.9),rgba(36, 35, 51, 0.5))
+				width: 100%
+				height: 100%
+				z-index: -1
+				padding: 0 0 0 35px
+				border-radius: 19px
+				position: static
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				align-items: center
+				.icon-cube
+					background: url(../img/icons/i-gem.png)
+					background-position: center center
+					background-repeat: no-repeat
+					background-size: cover
+					width: 58px
+					height: 52px
+					left: -8px
+					top: 2px
+					position: absolute
+					display: block
+
+$border: 2px
+$gradient-1: #ff905a
+$gradient-2: #d94fc7
+		
+.avatar
+	position: relative
+	margin-right: 20px
+	&-bordered
+		position: relative
+		border-radius: 50%
+		height: 50px
+		width: 50px
+		background: rgba(36,35,51,1)
+		background: -moz-linear-gradient(left, rgba(36,35,51,1) 0%, rgba(60,59,83,1) 100%)
+		background: -webkit-gradient(left top, right top, color-stop(0%, rgba(36,35,51,1)), color-stop(100%, rgba(60,59,83,1)))
+		background: -webkit-linear-gradient(left, rgba(36,35,51,1) 0%, rgba(60,59,83,1) 100%)
+		background: -o-linear-gradient(left, rgba(36,35,51,1) 0%, rgba(60,59,83,1) 100%)
+		background: -ms-linear-gradient(left, rgba(36,35,51,1) 0%, rgba(60,59,83,1) 100%)
+		background: linear-gradient(to right, rgba(36,35,51,1) 0%, rgba(60,59,83,1) 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242333', endColorstr='#3c3b53', GradientType=1 )
+		background-clip: padding-box
+		border: solid 2px
+		overflow: hidden
+		position: relative
+
+	&-img
+		position: absolute
+		left: -2px
+		right: 0
+		top: -10px
+	
+	&-on-line
+		width: 10px
+		height: 10px
+		border-radius: 50%
+		background: #282739
+		position: absolute
+		right: 0
+		bottom: 3px	
+		z-index: 1
+		display: inline-block
+
+		&:before, &:after
+			content: ''
+			background-image: linear-gradient(right, $gradient-1, $gradient-2)
+			position: absolute
+			width: calc(100% + #{$border*2})
+			height: calc(100% + #{$border*2})
+			left: -$border
+			top: -$border
+			border-radius: 50%
+			z-index: -2
+			transition: all .2s ease-in-out
+  
+		&:after
+			background: linear-gradient(left, #3c3b53, #242333)
+			width: 100%
+			height: 100%
+			z-index: -1
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			border-radius: 50%
+.main
+	background: url(../img/gradient-Map_bg.png)
+	background-position: 0 0
+	background-repeat: no-repeat
+	background-size: cover
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: space-between
+	width: 100%
+	height: 100%
+	position: relative
+	padding: 35px 28px
+	.content-left
+		max-width: 830px
+		width: 100%
+
+	.nav-page-block
+		background: rgba(36, 35, 51, 0.8)
+		width: 100%
+		height: 71px
+		border-radius: 15px
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		align-items: center
+		padding: 0 26px
+		justify-content: space-between
+
+	.top-back
+		margin-bottom: 35px
+		&-link
+			font-size: 18px
+			.icon-svg-nav
+				margin-right: 15px
+	.page
+		&-nav-link
+			color: #9d9acc
+		&-prev			
+			.icon-svg-nav
+				margin-right: 15px
+		&-next			
+			.icon-svg-nav
+				margin-left: 15px
+	.news
+
+		&-preview
+			background: rgba(36, 35, 51, 1)
+			width: 100%
+			border-top-left-radius: 15px
+			border-top-right-radius: 15px
+			padding: 20px 
+			margin: 20px 0 2px 
+
+			.img-wrap
+				max-width: 784px
+				height: 308px
+				border-radius: 15px
+				margin: auto
+				overflow: hidden
+		&-title
+			font-size: 22px
+			color: #fff
+			margin: 20px 0 10px
+			display: block
+		&-date
+			font-size: 16px
+			color: #9d9acc
+		&-content
+			margin-top: 30px
+		&-stat, &-social
+			list-style: none
+			margin: 0
+			padding: 0
+			li
+				display: inline-block
+				vertical-align: middle
+		&-stat li
+			margin-right: 20px		
+		&-social li
+			margin-left: 20px
+		&-footer
+			background: rgba(36, 35, 51, 1)
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			align-items: center
+			justify-content: space-between
+			height: 80px
+			border-bottom-left-radius: 15px
+			border-bottom-right-radius: 15px
+			padding: 0 20px			
+
+			._link
+				&:hover .icon-svg
+					fill: linear-gradient(left,#ff905a, #d94fc7)
+
+
+				span
+					color: #9d9acc
+					font-size: 16px
+					margin-left: 15px
+				.icon-svg
+					fill: rgba(157, 154, 204, .3)
+					width: 23px
+					height: 23px
+					vertical-align: sub
+	.comments
+
+		&-header
+			background: rgba(36, 35, 51, 1)
+			width: 100%
+			border-top-left-radius: 15px
+			border-top-right-radius: 15px
+			padding: 0 20px 
+			margin: 20px 0 2px
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			align-items: center
+			justify-content: space-between
+		&-info
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			align-items: center
+
+
+
+		&-icon
+			background: url(../img/icons/comments.png)
+			background-repeat: no-repeat
+			background-position: center center
+			background-size: cover
+			width: 21px
+			height: 21px
+			display: block
+			margin-right: 20px
+		&-count
+			color: #fff
+			margin-left: 5px
+		&-tabs
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			align-items: center
+			list-style: none
+			margin: 0
+			padding: 0
+			height: 80px
+			&-item
+				position: relative
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				align-items: center
+				height: 100%
+				padding: 0 10px
+				margin: 0 15px
+
+				&.active
+					bottom: -2px
+					.comments-tab-link
+						color: #fff			
+			&-link
+				color: #9d9acc
+		&-list-wrap
+			background: rgba(36, 35, 51, 1)
+			border-bottom-left-radius: 15px
+			border-bottom-right-radius: 15px
+			padding: 25px 20px			
+		&-search
+			min-width: 780px
+			width: 100%
+			height: 62px
+			background: rgba(157,154,204,0.05)
+			border: none
+			border-radius: 5px
+			padding-left: 30px
+		&-search-group
+			position: relative
+			a svg.icon-svg-nav 
+				position: absolute
+				right: 20px
+				top: 25px
+		&-item
+			margin: 25px 0 
+			padding-bottom: 25px
+			border-bottom: 1px solid  rgba(157, 154, 204, 0.1)
+		.comment
+			display: inline-block
+			max-width: calc(100% - 90px)
+
+		&-foto
+			width: 60px
+			height: 60px
+			border-radius: 50%
+			overflow: hidden
+			display: inline-block
+			margin-right: 20px
+			vertical-align: top
+		&-author
+			font-size: 18px
+			margin-right: 20px
+			display: inline-block
+			color: #9d9acc
+
+		&-date
+			font-size: 16px
+			display: inline-block
+			color: rgba(157, 154, 204, 0.5)
+		&-text
+			font-size: 14px
+			color: #ffffff
+
+.related
+	&-item
+		margin-bottom: 40px	
+	&-title
+		font-size: 18px
+		color: #ffffff
+		margin-bottom: 35px
+
+	&-news-wrap
+		position: relative
+		.img-wrap
+			width: 442px
+			height: 242px
+			overflow: hidden
+			position: relative
+			border-radius: 10px
+			box-shadow: 22px 0px 40px rgba(36,35,51,0.45)
+	.news-overlay-bottom
+		position: absolute
+		background: rgba(36,35,51, 0.9)
+		bottom: 0
+		height: 112px
+		max-width: 442px
+		width: 100%
+		padding: 20px 25px
+		border-bottom-left-radius: 10px
+		border-bottom-right-radius: 10px
+
+		.news-title
+			margin: 0
+			font-size: 18px
+		.news-content
+			margin: 0
+			font-size: 14px
