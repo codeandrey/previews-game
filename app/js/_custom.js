@@ -58,9 +58,12 @@ $(function() {
   jQuery( document ).ready(function($) {
   
   	$( '.menu-link' ).on('click',function() {
-	  if ( !$( this ).parent().is( ".active" ) ) {
-	  	$( '.menu-item' ).removeClass('active');
-	  	$( this ).parent().addClass('active');
-	  } 
-});
+  	  if ( !$( this ).parent().is( ".active" ) ) {
+  	  	$( '.menu-item' ).removeClass('active');
+  	  	$( this ).parent().addClass('active');
+  	  } 
+    });
+    $( '.menu-mobile' ).on('click',function() {
+      $('.menu-wrapper').toggle();
+    });
 });

@@ -22,7 +22,7 @@ body
 	min-width: 320px
 	position: relative
 	line-height: 1.65
-	font-family: 'Roboto', sans-serif
+	font-family: 'Geomanist-Book', sans-serif
 	overflow-x: hidden
 	color: $text
 
@@ -93,12 +93,22 @@ $gradient-2: #6f6d99
 		display: -o-flex
 		display: flex
 		justify-content: center
+		position: relative
+
 	.menu
+		&-mobile
+			position: absolute
+			left: 20px
+			top: 25px
+			display: none
+			.icon-svg-nav
+				width: 20px
+				height: 20px
+
 		&-item
 			list-style-type: none
 			line-height: 72px
 			vertical-align: middle
-			padding: 0 30px
 			display: inline-block
 
 			.bordered
@@ -108,6 +118,8 @@ $gradient-2: #6f6d99
 				z-index: 1
 				line-height: 38px
 				text-align: center
+				margin: auto
+
 				&:before, &:after
 					content: ''
 					background-image: linear-gradient(right, $gradient-1, $gradient-2)
@@ -128,11 +140,13 @@ $gradient-2: #6f6d99
 					left: 50%
 					transform: translate(-50%, -50%)
 					border-radius: 19px
-				.menu-link:hover
-					background: transparent
-					&:before
+				.menu-link
+					height: 38px
+					&:hover
 						background: transparent
-						border: none
+						&:before
+							background: transparent
+							border: none
 
 			
 
@@ -144,6 +158,9 @@ $gradient-2: #6f6d99
 			height: 72px
 			padding: 0 30px
 			text-decoration: none
+			font-size: 14px
+			font-family: 'Geomanist-Book', sans-serif
+
 	  
 			&:hover
 				background: rgba(226,226,226,0)
@@ -388,6 +405,7 @@ $gradient-2: #d94fc7
 	.content-left
 		max-width: 830px
 		width: 100%
+		margin-bottom: 35px
 
 	.nav-page-block
 		background: rgba(36, 35, 51, 0.8)
@@ -405,21 +423,26 @@ $gradient-2: #d94fc7
 
 	.top-back
 		margin-bottom: 35px
+
 		&-link
 			font-size: 18px
+			font-family: 'Geomanist-Book', sans-serif
+
 			.icon-svg-nav
 				margin-right: 15px
 	.page
 		&-nav-link
 			color: #9d9acc
+
 		&-prev			
 			.icon-svg-nav
 				margin-right: 15px
+
 		&-next			
 			.icon-svg-nav
 				margin-left: 15px
-	.news
 
+	.news
 		&-preview
 			background: rgba(36, 35, 51, 1)
 			width: 100%
@@ -434,27 +457,39 @@ $gradient-2: #d94fc7
 				border-radius: 15px
 				margin: auto
 				overflow: hidden
+
 		&-title
 			font-size: 22px
+			font-family: 'Geomanist-Book', sans-serif
 			color: #fff
 			margin: 20px 0 10px
 			display: block
+
 		&-date
 			font-size: 16px
 			color: #9d9acc
+
 		&-content
 			margin-top: 30px
+			font-size: 16px
+			font-family: 'Geomanist-Book', sans-serif
+
+
 		&-stat, &-social
 			list-style: none
 			margin: 0
 			padding: 0
+
 			li
 				display: inline-block
 				vertical-align: middle
+
 		&-stat li
 			margin-right: 20px		
+
 		&-social li
 			margin-left: 20px
+
 		&-footer
 			background: rgba(36, 35, 51, 1)
 			display: -webkit-flex
@@ -550,6 +585,9 @@ $gradient-2: #d94fc7
 						color: #fff			
 			&-link
 				color: #9d9acc
+				font-size: 16px
+				font-family: 'Geomanist-Book', sans-serif
+
 		&-list-wrap
 			background: rgba(36, 35, 51, 1)
 			border-bottom-left-radius: 15px
@@ -598,19 +636,23 @@ $gradient-2: #d94fc7
 		&-text
 			font-size: 14px
 			color: #ffffff
+			font-family: 'Geomanist-Book', sans-serif
 
+.content-right
+	max-width: 100%
 .related
 	&-item
 		margin-bottom: 40px	
 	&-title
 		font-size: 18px
+		font-family: 'Geomanist-Book', sans-serif
 		color: #ffffff
 		margin-bottom: 35px
 
 	&-news-wrap
 		position: relative
 		.img-wrap
-			width: 442px
+			max-width: 442px
 			height: 242px
 			overflow: hidden
 			position: relative
@@ -630,6 +672,29 @@ $gradient-2: #d94fc7
 		.news-title
 			margin: 0
 			font-size: 18px
+			font-family: 'Geomanist-Book', sans-serif
+
 		.news-content
 			margin: 0
 			font-size: 14px
+			font-family: 'Geomanist-Book', sans-serif
+	
+@media only screen and (max-width: 991px)
+	.header 
+		.menu-wrapper
+			display: none
+			position: absolute
+			top: 60px
+			background: #000
+			z-index: 100
+			padding-bottom: 20px
+			text-align: center
+		.menu-item
+			width: 100%
+			.bordered
+				margin-top: 10px
+			.menu-link
+				height:auto
+
+		.menu-mobile
+			display: block
