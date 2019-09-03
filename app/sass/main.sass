@@ -11,8 +11,10 @@
 
 input, textarea
 	outline: none
+
 	&:focus:required:invalid
 		border-color: red
+
 	&:required:valid
 		border-color: green
 
@@ -28,15 +30,19 @@ body
 
 a
 	color: #ffffff
+
 	&:hover
 		outline: none
 		text-decoration: none
+
 object
 	display: none
+
 ul
 	margin: 0
 	padding: 0
 	list-style: none
+
 .icon-svg-nav
 	width: 15px
 	height: 15px
@@ -49,6 +55,7 @@ ul
 	min-height: 100vh
 	margin: auto
 	overflow: hidden
+
 .active a:before, .menu-link:hover:before, .active .comments-tab-link:before
 	content: ''
 	width: 100%
@@ -65,9 +72,27 @@ ul
 	background: linear-gradient(to right, rgba(217,79,199,1) 0%, rgba(255,145,90,1) 100%)
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d94fc7', endColorstr='#ff915a', GradientType=1 )
 
+.svg-settings
+	position: absolute
+	height: 1px
+	width: 1px
+	overflow: hidden
+	clip: rect(1px 1px 1px 1px)
+	clip: rect(1px, 1px, 1px, 1px)
+
+.linear-stop1
+	stop-color: #d94fc7
+
+.linear-stop2
+	stop-color: #ff905a
+
+._link:hover .icon-svg *
+	fill: url(#linear)
+
 $border: 2px
 $gradient-1: #9d9acc
 $gradient-2: #6f6d99
+
 .header
 	display: -webkit-flex
 	display: -moz-flex
@@ -101,6 +126,7 @@ $gradient-2: #6f6d99
 			left: 20px
 			top: 25px
 			display: none
+
 			.icon-svg-nav
 				width: 20px
 				height: 20px
@@ -140,15 +166,16 @@ $gradient-2: #6f6d99
 					left: 50%
 					transform: translate(-50%, -50%)
 					border-radius: 19px
+
 				.menu-link
 					height: 38px
+
 					&:hover
 						background: transparent
+
 						&:before
 							background: transparent
 							border: none
-
-			
 
 		&-link
 			position: relative
@@ -161,7 +188,6 @@ $gradient-2: #6f6d99
 			font-size: 14px
 			font-family: 'Geomanist-Book', sans-serif
 
-	  
 			&:hover
 				background: rgba(226,226,226,0)
 				color: #fff 
@@ -181,8 +207,8 @@ $gradient-2: #6f6d99
 		display: -o-flex
 		display: flex
 		align-items: center
+
 		.dots
-			
 			&-list
 				list-style: none
 				display: -webkit-flex
@@ -201,6 +227,7 @@ $gradient-2: #6f6d99
 					width: 25px
 					height: 30px
 					position: relative
+
 					&:before
 						content: ''
 						width: 16px
@@ -209,7 +236,8 @@ $gradient-2: #6f6d99
 						background: #282739
 						position: absolute
 						right: -5px
-						top: -3px					
+						top: -3px		
+
 					&.i-chalice
 						background: url(../img/icons/i-chalice.png) 
 						background-position: center center
@@ -253,9 +281,11 @@ $gradient-2: #6f6d99
 							background: -ms-linear-gradient(45deg, rgba(87,186,201,1) 0%, rgba(61,235,110,1) 100%)
 							background: linear-gradient(45deg, rgba(87,186,201,1) 0%, rgba(61,235,110,1) 100%)
 							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#57bac9', endColorstr='#3deb6e', GradientType=1 )
+
 $border: 2px
 $gradient-1: #d94fc7
 $gradient-2: #6d30c8
+
 .money
 	&-bordered
 		width: 85px
@@ -264,6 +294,7 @@ $gradient-2: #6d30c8
 		z-index: 1
 		display: inline-block
 		margin: 0 16px
+
 		&:before, &:after
 			content: ''
 			background-image: linear-gradient(right, $gradient-1, $gradient-2)
@@ -285,6 +316,7 @@ $gradient-2: #6d30c8
 			left: 50%
 			transform: translate(-50%, -50%)
 			border-radius: 19px
+
 		&_bg
 			background: url(../img/gem_bg.png)
 			background-position: center center
@@ -295,6 +327,7 @@ $gradient-2: #6d30c8
 			display: block
 			border: 2px solid #000
 			border-radius: 19px
+
 			span
 				color: #fff
 				background: linear-gradient(left, rgba(60, 59, 83, 0.9),rgba(36, 35, 51, 0.5))
@@ -310,6 +343,7 @@ $gradient-2: #6d30c8
 				display: -o-flex
 				display: flex
 				align-items: center
+
 				.icon-cube
 					background: url(../img/icons/i-gem.png)
 					background-position: center center
@@ -329,6 +363,7 @@ $gradient-2: #d94fc7
 .avatar
 	position: relative
 	margin-right: 20px
+
 	&-bordered
 		position: relative
 		border-radius: 50%
@@ -385,6 +420,7 @@ $gradient-2: #d94fc7
 			left: 50%
 			transform: translate(-50%, -50%)
 			border-radius: 50%
+
 .main
 	background: url(../img/gradient-Map_bg.png)
 	background-position: 0 0
@@ -401,7 +437,8 @@ $gradient-2: #d94fc7
 	width: 100%
 	height: 100%
 	position: relative
-	padding: 35px 28px
+	padding: 35px 0
+
 	.content-left
 		max-width: 830px
 		width: 100%
@@ -430,6 +467,7 @@ $gradient-2: #d94fc7
 
 			.icon-svg-nav
 				margin-right: 15px
+
 	.page
 		&-nav-link
 			color: #9d9acc
@@ -505,21 +543,18 @@ $gradient-2: #d94fc7
 			padding: 0 20px			
 
 			._link
-				&:hover .icon-svg
-					fill: linear-gradient(left,#ff905a, #d94fc7)
-
-
 				span
 					color: #9d9acc
 					font-size: 16px
 					margin-left: 15px
+
 				.icon-svg
 					fill: rgba(157, 154, 204, .3)
 					width: 23px
 					height: 23px
 					vertical-align: sub
-	.comments
 
+	.comments
 		&-header
 			background: rgba(36, 35, 51, 1)
 			width: 100%
@@ -534,6 +569,7 @@ $gradient-2: #d94fc7
 			display: flex
 			align-items: center
 			justify-content: space-between
+
 		&-info
 			display: -webkit-flex
 			display: -moz-flex
@@ -541,8 +577,6 @@ $gradient-2: #d94fc7
 			display: -o-flex
 			display: flex
 			align-items: center
-
-
 
 		&-icon
 			background: url(../img/icons/comments.png)
@@ -553,9 +587,11 @@ $gradient-2: #d94fc7
 			height: 21px
 			display: block
 			margin-right: 20px
+
 		&-count
 			color: #fff
 			margin-left: 5px
+
 		&-tabs
 			display: -webkit-flex
 			display: -moz-flex
@@ -567,6 +603,7 @@ $gradient-2: #d94fc7
 			margin: 0
 			padding: 0
 			height: 80px
+
 			&-item
 				position: relative
 				display: -webkit-flex
@@ -582,7 +619,8 @@ $gradient-2: #d94fc7
 				&.active
 					bottom: -2px
 					.comments-tab-link
-						color: #fff			
+						color: #fff	
+
 			&-link
 				color: #9d9acc
 				font-size: 16px
@@ -592,7 +630,8 @@ $gradient-2: #d94fc7
 			background: rgba(36, 35, 51, 1)
 			border-bottom-left-radius: 15px
 			border-bottom-right-radius: 15px
-			padding: 25px 20px			
+			padding: 25px 20px		
+
 		&-search
 			min-width: 780px
 			width: 100%
@@ -601,16 +640,20 @@ $gradient-2: #d94fc7
 			border: none
 			border-radius: 5px
 			padding-left: 30px
+
 		&-search-group
 			position: relative
+
 			a svg.icon-svg-nav 
 				position: absolute
 				right: 20px
 				top: 25px
+
 		&-item
 			margin: 25px 0 
 			padding-bottom: 25px
 			border-bottom: 1px solid  rgba(157, 154, 204, 0.1)
+
 		.comment
 			display: inline-block
 			max-width: calc(100% - 90px)
@@ -623,6 +666,7 @@ $gradient-2: #d94fc7
 			display: inline-block
 			margin-right: 20px
 			vertical-align: top
+
 		&-author
 			font-size: 18px
 			margin-right: 20px
@@ -633,6 +677,7 @@ $gradient-2: #d94fc7
 			font-size: 16px
 			display: inline-block
 			color: rgba(157, 154, 204, 0.5)
+
 		&-text
 			font-size: 14px
 			color: #ffffff
@@ -640,9 +685,11 @@ $gradient-2: #d94fc7
 
 .content-right
 	max-width: 100%
+
 .related
 	&-item
 		margin-bottom: 40px	
+
 	&-title
 		font-size: 18px
 		font-family: 'Geomanist-Book', sans-serif
@@ -651,6 +698,7 @@ $gradient-2: #d94fc7
 
 	&-news-wrap
 		position: relative
+
 		.img-wrap
 			max-width: 442px
 			height: 242px
@@ -658,6 +706,7 @@ $gradient-2: #d94fc7
 			position: relative
 			border-radius: 10px
 			box-shadow: 22px 0px 40px rgba(36,35,51,0.45)
+
 	.news-overlay-bottom
 		position: absolute
 		background: rgba(36,35,51, 0.9)
@@ -689,10 +738,13 @@ $gradient-2: #d94fc7
 			z-index: 100
 			padding-bottom: 20px
 			text-align: center
+
 		.menu-item
 			width: 100%
+
 			.bordered
 				margin-top: 10px
+				
 			.menu-link
 				height:auto
 
