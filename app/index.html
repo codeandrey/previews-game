@@ -8,6 +8,7 @@
 	<link rel="icon" href="img/favicon.png">
 	<meta property="og:image" content="img/@1x/preview.jpg">
 	<link rel="stylesheet" href="css/styles.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
 <body>
@@ -23,7 +24,7 @@
         </linearGradient>
       </defs>
 </svg>
-	<div class="wappper">
+	<div id="app" class="wappper">
 		<div class="header">
 			<div class="header-nav">
 				<div class="menu-mobile">
@@ -38,20 +39,20 @@
 					<li class="menu-item"><div class="bordered"><a href="#" class="menu-link">Play</a></div></li>
 				</nav>
 			</div>
-			<div class="header-user">
+			<div class="header-user" v-if="userData.isOnLine">
 				<div class="dots">
 					<ul class="dots-list">
-						<li class="dots-item">
+						<li class="dots-item" v-show="userData.chalice">
 							<span class="i i-chalice"></span>
 						</li>
-						<li class="dots-item">
+						<li class="dots-item" v-show="userData.notification">
 							<span class="i i-notification"></span>
 						</li>
 					</ul>
 				</div>
 				<div class="money-bordered">
 					<div class="money-bordered_bg">
-						<span><i class="icon-cube"></i>142</span>
+						<span><i class="icon-cube"></i>{{userData.moneyCoins}}</span>
 					</div>
 				</div>
 				<div class="avatar">
@@ -60,11 +61,12 @@
 							<img src="./img/avatar.jpg" alt="" class="avatar-pic">
 						</div>
 					</div>
-					<span class="avatar-on-line"></span>
+					<span v-bind:class="{ 'avatar-on-line': userData.isOnLine}"></span>
 
 					
 				</div>
 			</div>
+			<div class="auth" v-else><a v-on:click.stop.prevent="authentication">Login</a></div>
 		</div>
 		<section class="main">
 			<div class="content-left">
@@ -96,23 +98,20 @@
 					</div>
 					<div class="news-preview">
 						<div class="img-wrap">
-							<img src="/img/news-img.jpg" alt="" class="img-pic">
+							<img v-bind:src="currentPost._src" alt="" class="img-pic">
 						</div>
-						<a href="#" class="news-title">The International 2018 Collector’</a>
-						<div class="news-date">July 24, 2018</div>
-						<div class="news-content">
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
-						</div>
+						<a href="#" class="news-title">{{currentPost._title}}</a>
+						<div class="news-date">{{currentPost._date}}</div>
+						<div class="news-content"><p>{{currentPost._content}}</p></div>
 					</div>
 					<div class="news-footer">
 						<ul class="news-stat">
 							<li>
-								<a href="#" class="_link">
+								<a class="_link" v-on:click.stop.prevent="handlerLike">
 									<svg class="icon-svg">
 						          		<use xlink:href="solid.svg#thumbs-up"></use>
 						        	</svg>
-						        	<span class="like-count">345</span>
+						        	<span class="like-count">{{currentPost._like}}</span>
 					       		</a>
 							</li>
 							<li>
@@ -120,7 +119,7 @@
 									<svg class="icon-svg">
 						          		<use xlink:href="solid.svg#eye"></use>
 						        	</svg>
-						        	<span class="previews-count">7.649</span>
+						        	<span class="previews-count">{{currentPost._previews}}</span>
 					       		</a>
 							</li>							
 							
@@ -154,7 +153,7 @@
 					<div class="comments-header">
 						<div class="comments-info">
 							 <span class="comments-icon"></span>
-							Comments: <span class="comments-count">48</span>
+							Comments: <span class="comments-count">{{currentPost.comments.length}}</span>
 						</div>
 						<ul class="comments-tabs">
 							<li class="comments-tabs-item active"><span class="comments-tab-link">Popular</span></li>
@@ -165,7 +164,7 @@
 					 	<div class="tabBlock-pane">
 							<div class="comments-list-wrap">
 								<div class="comments-search-group">
-									<input type="text"class="comments-search" name="comments-search" placeholder="Type comment here.." >
+									<input type="text" v-model="search" class="comments-search" name="comments-search" placeholder="Type comment here.." >
 									<a href="#">
 										<svg class="icon-svg-nav">
 						          			<use xlink:href="solid.svg#arrow-right"></use>
@@ -173,26 +172,14 @@
 						        	</a>
 								</div>
 								<ul class="comments-list">
-									<li class="comments-item">
+									<li class="comments-item" v-for="(item, index) in filterComment" v-bind:key="item.id">
 										<div class="comments-foto">
-											<img src="/img/comment-foto.jpg" alt="comments-foto">
+											<img v-bind:src="item._authorSrc" alt="comments-foto">
 										</div>
 										<div class="comment">
-											<div class="comments-author">Svetlakov</div>
-											<div class="comments-date">22 May</div>
-											<div class="comments-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</div>
-
-										</div>
-									</li>
-									<li class="comments-item">
-										<div class="comments-foto">
-											<img src="/img/comment-foto.jpg" alt="comments-foto">
-										</div>
-										<div class="comment">
-											<div class="comments-author">Svetlakov</div>
-											<div class="comments-date">22 May</div>
-											<div class="comments-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</div>
-
+											<div class="comments-author">{{item._authorName}}</div>
+											<div class="comments-date">{{item._date}}</div>
+											<div class="comments-text">{{item._comment}}</div>
 										</div>
 									</li>
 								</ul>
@@ -217,7 +204,6 @@
 											<div class="comments-author">Svetlakov</div>
 											<div class="comments-date">22 May</div>
 											<div class="comments-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</div>
-
 										</div>
 									</li>
 									<li class="comments-item">
@@ -228,7 +214,6 @@
 											<div class="comments-author">Svetlakov</div>
 											<div class="comments-date">22 May</div>
 											<div class="comments-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</div>
-
 										</div>
 									</li>
 								</ul>
@@ -242,43 +227,15 @@
 				<div class="related">
 					<div class="related-title">Related News</div>
 					<ul class="related-list">
-						<li class="related-item">
+						<li class="related-item" v-for="(item, index) in postsRelated" v-bind:key="item.id">
 							<div class="related-news-wrap">
 								<div class="img-wrap">
-									<img src="/img/related-img.jpg" alt="" class="img-pic">
+									<img v-bind:src="item._src" alt="" class="img-pic">
 								</div>
 								<div class="news-overlay-bottom">
-									<a href="#"  class="news-title">Welcome to Nethernite</a>
+									<a href="#"  class="news-title">{{item._title}}</a>
 									<div class="news-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-									</div>
-								</div>
-								
-							</div>
-						</li>
-						<li class="related-item">
-							<div class="related-news-wrap">
-								<div class="img-wrap">
-									<img src="/img/related-img.jpg" alt="" class="img-pic">
-								</div>
-								<div class="news-overlay-bottom">
-									<a href="#"  class="news-title">Welcome to Nethernite</a>
-									<div class="news-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-									</div>
-								</div>
-								
-							</div>
-						</li>
-						<li class="related-item">
-							<div class="related-news-wrap">
-								<div class="img-wrap">
-									<img src="/img/related-img.jpg" alt="" class="img-pic">
-								</div>
-								<div class="news-overlay-bottom">
-									<a href="#"  class="news-title">Welcome to Nethernite</a>
-									<div class="news-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+										<p>{{item._content}}</p>
 									</div>
 								</div>
 								
@@ -287,11 +244,8 @@
 					</ul>
 				</div>
 			</div>
-
-
-
 		</section>
-		
+
 	</div>
 		<script src="js/jquery.min.js"></script>
 

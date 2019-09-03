@@ -67,3 +67,78 @@ $(function() {
       $('.menu-wrapper').toggle();
     });
 });
+
+  var app = new Vue({
+  el: '#app',
+  data: {
+      search: '',
+      userData: {
+        isOnLine: false,
+        chalice: true,
+        notification: true,
+        moneyCoins: 142,
+        currentMoney: 0
+      },
+      postsRelated: [
+         { _id: 0,
+          _src: '/img/related-img.jpg',
+          _title: 'Welcome to Nethernite',
+          _content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt',
+        },
+        {
+          _id: 1,
+          _src: '/img/related-img.jpg',
+          _title: 'Welcome to Nethernite' ,
+          _content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt',
+        },
+        {
+          _id: 2,
+          _src: '/img/related-img.jpg',
+          _title: 'Welcome to Nethernite',
+          _content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt',
+        }
+      ],
+      currentPost: {
+        _id: 2,
+        _src: '/img/related-img.jpg',
+        _date: 'July 24, 2018',
+        _title: 'The International 2018 Collector’',
+        _content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s.',
+        _like: 345,
+        _previews: 7649,
+        comments: [
+          {
+            _id: 0,
+            _authorSrc: '/img/comment-foto.jpg',
+            _authorName: 'Svetlakov',
+            _date: '22 May',
+            _comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500.',
+          },          
+          {
+            _id: 1,
+            _authorSrc: '/img/comment-foto.jpg',
+            _authorName: 'Andrey',
+            _date: '22 May',
+            _comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500.',
+          }
+      ]
+    }
+    },
+  methods: {
+    authentication: function() {
+      this.userData.isOnLine=!this.userData.isOnLine
+    },
+    handlerLike: function() {
+      this.currentPost._like++
+    }
+  },
+  computed: {
+    filterComment: function() {
+      return this.currentPost.comments.filter(comment => {
+        return comment._authorName.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  }
+
+
+})
